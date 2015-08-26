@@ -1,0 +1,280 @@
+* { font-family:"Lucida Grande", "Lucida Sans Unicode", "Microsoft Yahei", sans-serif }
+body { margin:0; padding:0; background:#000; font-size:14px; color:#FFF }
+h1, h2 { color:#FFF; text-shadow:2px 2px 5px rgba(0,0,0,0.6) }
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-9ui3e8');
+	src:url('fonts/icomoon.eot?#iefix-9ui3e8') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-9ui3e8') format('woff'),
+		url('fonts/icomoon.ttf?-9ui3e8') format('truetype'),
+		url('fonts/icomoon.svg?-9ui3e8#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.icon {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#wrapper {
+	position: absolute;
+	top:0; right:0; bottom:0; left:0;
+	-webkit-perspective: 1600px;
+	-moz-perspective: 1600px;
+	-ms-perspective: 1600px;
+	perspective: 1600px;
+	overflow: hidden;
+}
+#namesPanel, #optionsPanel {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: all 1.5s ease-in-out;
+	-moz-transition: all 1.5s ease-in-out;
+	-o-transition: all 1.5s ease-in-out;
+	transition: all 1.5s ease-in-out;
+	position: absolute;
+	top:0; right:0; bottom:0; left:0;
+	text-align: center;
+}
+#namesPanel {
+	z-index: 900;
+	background-color: #333;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+#optionsPanel {
+	z-index: 800;
+	background-color: #333;
+	background-image: -webkit-radial-gradient(center bottom, circle closest-corner, #444 0%, #333 100%);
+	background-image: radial-gradient(circle closest-corner at center bottom, #444 0%, #333 100%);
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+#wrapper.flip #namesPanel {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+	background-color: #000;
+}
+#wrapper.flip #optionsPanel {
+	z-index: 1000;
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+
+.name {
+	float: left;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	color: #888;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.name.on {
+	background: orange;
+	box-shadow: 0 0 20px orange;
+	color: #FFF;
+	text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+}
+.name.removed { color: #444 }
+
+.namesPanelClickArea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	display: block;
+	position: absolute;
+	top:0; right:0; bottom:0; left:0;
+	width:100%; height:100%;
+	background: none;
+	border: none;
+	z-index: 910;
+}
+
+.namesPanelBtn, .optionsPanelBtn {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	display: block;
+	position: absolute;
+	padding: 10px;
+	opacity: 0.2;
+	cursor: pointer;
+	background: none;
+	border: none;
+	border-radius: 50%;
+	-webkit-transition: opacity 0.2s ease-out, color 0.2s ease-out;
+	-moz-transition: opacity 0.2s ease-out, color 0.2s ease-out;
+	-o-transition: opacity 0.2s ease-out, color 0.2s ease-out;
+	transition: opacity 0.2s ease-out, color 0.2s ease-out;
+	z-index: 920;
+	font-size: 48px;
+	color: #FFF;
+}
+.namesPanelBtn:focus, .optionsPanelBtn:focus { outline:0 }
+.optionsPanelBtn { position:static; color:#CCC }
+.namesPanelBtn:hover, .optionsPanelBtn { opacity:1 }
+.optionsPanelBtn[type=submit]:hover { color:#4CD964; }
+.optionsPanelBtn[type=button]:hover { color:#FF2D55; }
+.namesPanelBtn:active, .optionsPanelBtn:active { background:rgba(255,255,255,.2) }
+@-webkit-keyframes glow { 50% { text-shadow:0 0 10px rgba(255,255,255,.8) } }
+@-moz-keyframes glow { 50% { text-shadow:0 0 10px rgba(255,255,255,.8) } }
+@keyframes glow { 50% { text-shadow:0 0 10px rgba(255,255,255,.8) } }
+.namesPanelBtn.glow {
+	opacity: 1;
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+	-moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;
+}
+#options-btn { bottom:50px; right:50px }
+#reset-btn { bottom:50px; right:128px }
+
+#options {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 800px;
+	height: 430px;
+	margin: -210px 0 0 -400px;
+}
+#options-left {
+	position: absolute;
+	top: 20px;
+	right: 280px;
+	bottom: 60px;
+	left: 20px;
+	text-align: left;
+}
+#options-left textarea {
+	width: 474px;
+	height: 315px;
+	resize: none;
+	padding: 10px;
+	background: none;
+	border: 1px solid #666;
+	outline: none;
+	color: #FFF;
+	font-size: 14px;
+	border-radius: 3px;
+	overflow: auto;
+}
+#options-right {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	bottom: 60px;
+	left: 540px;
+	text-align: left;
+}
+.browser-compatibility-checks {
+	margin-bottom: 20px;
+	border: 1px solid #666;
+	border-radius: 3px;
+	color: #FFF;
+	line-height: 1.2em;
+}
+.browser-compatibility-checks legend { color:#FFF }
+.browser-compatibility-checks .fail:before, .browser-compatibility-checks .pass:before {
+	display:inline-block;
+	width:20px;
+	text-align:center;
+}
+.browser-compatibility-checks .pass { color:#4CD964 } .browser-compatibility-checks .pass:before { content:"✔" }
+.browser-compatibility-checks .fail { color:#FF2D55 } .browser-compatibility-checks .fail:before { content:"✘" }
+#options-right label {
+	display: block;
+	margin: 0 0 10px 0;
+	height: 28px;
+}
+#options-right label span {
+	line-height: 28px;
+	vertical-align: middle;
+}
+#options-bottom {
+	position: absolute;
+	top: 380px;
+	right: 20px;
+	bottom: 20px;
+	left: 20px;
+	text-align: left;
+}
+
+/* Fancy Checkbox */
+.fancyChkbox {
+	border: 2px solid #E3E3E3;
+	border-radius: 1.5em;
+	cursor: pointer;
+	display: inline-block;
+	zoom: 1;
+	float: right;
+	height: 28px;
+	position: relative;
+	width: 50px;
+	-webkit-transition: all .3s ease-out;
+	transition: all .3s ease-out;
+}
+.fancyChkbox.on {
+	border-color: #02E266;
+	background-color: #02E266;
+}
+.fancyChkbox .slider {
+	border-radius: 50%;
+	box-shadow: 0 3px 2px rgba(0,0,0,0.2), 0 0 0 1px #E3E3E3;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	background-color: #fff;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 28px;
+	height: 28px;
+	-webkit-transition: -webkit-transform .3s cubic-bezier(.45,.45,.42,1.36);
+	transition: transform .3s cubic-bezier(.45,.45,.42,1.36);
+}
+.fancyChkbox.on .slider {
+	box-shadow: 0 3px 2px rgba(0,0,0,0.2);
+	left: auto;
+	right: 0;
+}
+.csstransforms .fancyChkbox.on .slider {
+	left: 0;
+	right: auto;
+	-webkit-transform: translate(22px, 0);
+	transform: translate(22px, 0);
+}
+.fancyChkbox input {
+	display: none;
+}
+
+copyright { position:absolute; bottom:0; left:50%; width:200px; margin-left:-100px; display:block; padding:10px; text-align:center; color:#888; text-shadow: 0 -1px 0 rgba(0,0,0,.6) }
+copyright a { color:#888; text-decoration:none }
+copyright a:hover { text-decoration:underline }

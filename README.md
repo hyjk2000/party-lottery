@@ -17,7 +17,7 @@ Years later I found this app is still pretty useful. But the code was written in
 * Rewrite JavaScript in CoffeeScript or ECMAScript 2015
 * Rewrite CSS using Sass and Autoprefixer
 * Remove jQuery & Modernizr (along with ancient browsers support)
-* Maybe package it with [nw.js](https://github.com/nwjs/nw.js)
+* Package with [nw.js](https://github.com/nwjs/nw.js)
 
 ## Contribute
 
@@ -27,4 +27,8 @@ Pull requests, feature requests and bug reports are welcome.
 
 Copyright 2013-2015 James Shih.
 
-This software is licensed under the MIT License. See [LICENSE](https://github.com/hyjk2000/party-lottery/blob/master/LICENSE).
+This software is licensed under the [MIT License](https://github.com/hyjk2000/party-lottery/blob/master/LICENSE).
+
+[IcoMoon](https://icomoon.io)
+
+Copyright 2015 Roonas. Licensed under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
