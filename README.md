@@ -14,7 +14,7 @@ This was a toy app for use in my wedding back in 2013. I could not find a suitab
 
 Years later I found this app is still pretty useful. But the code was written in a rush and is too messy to work on.
 
-* Rewrite JavaScript in CoffeeScript or ECMAScript 2015
+* Rewrite JavaScript in ~~CoffeeScript or~~ ECMAScript 2015
 * Rewrite CSS using Sass and Autoprefixer
 * Remove jQuery & Modernizr (along with ancient browsers support)
 * Package with [nw.js](https://github.com/nwjs/nw.js)
