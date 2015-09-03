@@ -24,12 +24,11 @@ let OptionsPanel = (function() {
         this.close();
       });
 
-      [].forEach.call(nodes.options_checkboxes, aChkbox => {
+      nodes.options_checkboxes.forEach(aChkbox => {
         aChkbox.addEventListener('click', function(e) {
-          let thisChkbox = this.querySelector('input[type=checkbox]');
-          thisChkbox.checked = !thisChkbox.checked;
-          if (thisChkbox.checked) this.classList.add('on');
-          else this.classList.remove('on');
+          let realChkbox = this.querySelector('input[type=checkbox]');
+          realChkbox.checked = !realChkbox.checked;
+          realChkbox.checked ? this.classList.add('on') : this.classList.remove('on');
         }, false);
       });
     }
@@ -40,10 +39,9 @@ let OptionsPanel = (function() {
       nodes.options_stopOnDemand.checked = this.config.stopOnDemand;
       nodes.options_lightTheme.checked = this.config.lightTheme;
       nodes.options_readOutNames.checked = this.config.readOutNames;
-      [].forEach.call(nodes.options_checkboxes, aChkbox => {
-        let thisChkbox = aChkbox.querySelector('input[type=checkbox]');
-        if (thisChkbox.checked) aChkbox.classList.add('on');
-        else aChkbox.classList.remove('on');
+      nodes.options_checkboxes.forEach(aChkbox => {        
+        let realChkbox = aChkbox.querySelector('input[type=checkbox]');
+        realChkbox.checked ? aChkbox.classList.add('on') : aChkbox.classList.remove('on');
       });
     }
 
