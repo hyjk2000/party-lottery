@@ -2,6 +2,7 @@ var gulp = require("gulp");
 var sourcemaps = require("gulp-sourcemaps");
 var babel = require("gulp-babel");
 var concat = require("gulp-concat");
+var watch = require("gulp-watch");
 
 gulp.task("default", ["babel"]);
 
@@ -14,6 +15,7 @@ gulp.task("babel", function() {
   ];
 
   gulp.src(files)
+    .pipe(watch(files))
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(concat("all.js"))

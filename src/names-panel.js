@@ -9,7 +9,7 @@ let NamesPanel = (function() {
       this.config = new Config();
       this.nameCount = 0;
       this.running = false;
-      this.keepRunning = true;
+      this.keepRunning = false;
       this.daemon = null;
 
       nodes.resetBtn.addEventListener('click', e => {

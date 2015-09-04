@@ -8,6 +8,7 @@ let nodes = (function() {
     wrapper: $('#wrapper'),
     namesPanel: $('#namesPanel'),
     nameNodes: () => $('.name'),
+    nameOnNode: () => $('.name.on'),
     resetBtn: $('#reset-btn'),
     clickArea: $('#click-area'),
     optionsBtn: $('#options-btn'),
