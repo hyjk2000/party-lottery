@@ -10,63 +10,63 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="dist/all.css">
 </head>
 
 <body>
 
 <div id="wrapper">
-  <div id="namesPanel">
-    <input type="button" class="namesPanelClickArea" id="click-area">
-    <input type="button" class="namesPanelBtn icon" id="reset-btn" title="复位" value="&#xe601;">
-    <input type="button" class="namesPanelBtn icon" id="options-btn" title="设置" value="&#xe602;">
+  <div id="namesPanel" class="panel">
+    <button id="click-area"></button>
+    <button class="icon" id="reset-btn" title="复位">&#xe601;</button>
+    <button class="icon" id="options-btn" title="设置"><span>&#xe602;</span></button>
   </div>
-  <div id="optionsPanel">
+  <div id="optionsPanel" class="panel">
     <div id="options">
       <form id="options-form" action="javascript:;">
         <div id="options-left">
           <textarea id="names" placeholder="在此输入参与者的姓名，以空格、顿号或中英文逗号分隔"></textarea>
         </div>
         <div id="options-right">
-          <fieldset class="browser-compatibility-checks">
-            <legend>浏览器功能</legend>
+          <fieldset>
+            <legend>选项</legend>
+            <label>
+              <span>不能重复中奖</span>
+              <div class="fancyChkbox">
+                <div class="slider"></div>
+                <input type="checkbox" id="removeAfterHit">
+              </div>
+            </label>
+            <label>
+              <span>朗读中奖者名字</span>
+              <div class="fancyChkbox">
+                <div class="slider"></div>
+                <input type="checkbox" id="readOutNames">
+              </div>
+            </label>
+            <label>
+              <span>手动停止</span>
+              <div class="fancyChkbox">
+                <div class="slider"></div>
+                <input type="checkbox" id="stopOnDemand">
+              </div>
+            </label>
+            <label>
+              <span>浅色主题</span>
+              <div class="fancyChkbox">
+                <div class="slider"></div>
+                <input type="checkbox" id="lightTheme">
+              </div>
+            </label>
           </fieldset>
-          <label>
-            <span>不能重复中奖</span>
-            <div class="fancyChkbox">
-              <div class="slider"></div>
-              <input type="checkbox" id="removeAfterHit">
-            </div>
-          </label>
-          <label>
-            <span>朗读中奖者名字</span>
-            <div class="fancyChkbox">
-              <div class="slider"></div>
-              <input type="checkbox" id="readOutNames">
-            </div>
-          </label>
-          <label>
-            <span>手动停止</span>
-            <div class="fancyChkbox">
-              <div class="slider"></div>
-              <input type="checkbox" id="stopOnDemand">
-            </div>
-          </label>
-          <label>
-            <span>浅色调（需要刷新）</span>
-            <div class="fancyChkbox">
-              <div class="slider"></div>
-              <input type="checkbox" id="lightTheme">
-            </div>
-          </label>
         </div>
         <div id="options-bottom">
-          <button type="submit" class="optionsPanelBtn icon" style="float:right" title="保存设置">&#xe603;</button>
-          <button type="button" class="optionsPanelBtn icon" id="optionCancel" title="取消">&#xe600;</button>
+          <button type="submit" class="icon" id="optionSubmit" style="float:right" title="保存设置">&#xe603;</button>
+          <button type="button" class="icon" id="optionCancel" title="取消">&#xe600;</button>
         </div>
       </form>
     </div>
-    <copyright>&copy;MMXIII-MMXV <a href="http://hyjk2000.github.io/">James Shih</a></copyright>
+    <copyright>&copy; MMXIII-MMXV <a href="http://hyjk2000.github.io/">James Shih</a></copyright>
   </div>
 </div>
 

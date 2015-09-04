@@ -1,0 +1,66 @@
+#namesPanel {
+  background-color: #333;
+
+  .name {
+    float: left;
+    transition: all .2s ease;
+    color: #888;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &.on {
+      background: orange;
+      box-shadow: 0 0 20px orange;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,.6);
+    }
+
+    &.removed {
+      color: #444;
+    }
+  }
+
+  #click-area {
+    @include full-blown;
+
+    display: block;
+    background: none;
+    border: none;
+    z-index: 910;
+  }
+
+  button {
+    position: absolute;
+    bottom: 50px;
+    opacity: .2;
+
+    &:hover, &:focus {
+      opacity: 1;
+    }
+
+    &#options-btn {
+      right: 50px;
+    }
+
+    &#reset-btn {
+      right: 128px;
+    }
+
+    &.bouncing {
+      opacity: 1;
+    }
+
+    &.bouncing span {
+      animation: bounce ease-out 2s infinite;
+
+      @keyframes bounce {
+          0%  { transform: translateY(0) }
+          10% { transform: translateY(-80px) }
+          20% { transform: translateY(0) }
+          30% { transform: translateY(-40px) }
+          40% { transform: translateY(0) }
+      }
+    }
+  }
+}

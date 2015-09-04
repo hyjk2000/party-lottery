@@ -49,9 +49,9 @@ let NamesPanel = (function() {
       });
 
       if (this.nameCount < 2) {
-        nodes.optionsBtn.classList.add('glow');
+        nodes.optionsBtn.classList.add('bouncing');
       } else {
-        nodes.optionsBtn.classList.remove('glow');
+        nodes.optionsBtn.classList.remove('bouncing');
       }
     }
 

@@ -1,0 +1,154 @@
+#optionsPanel {
+  background-color: #333;
+  background-image: radial-gradient(circle closest-corner at center bottom, #444 0%, #333 100%);
+
+  button {
+    color: #ccc;
+
+    &[type=submit]:hover {
+      color: #4cd964;
+    }
+
+    &[type=button]:hover {
+      color: #ff2d55;
+    }
+  }
+
+  .fancyChkbox {
+    border: 2px solid #e3e3e3;
+    border-radius: 1.5em;
+    cursor: pointer;
+    display: inline-block;
+    zoom: 1;
+    float: right;
+    height: 28px;
+    position: relative;
+    width: 50px;
+    transition: all .3s ease-out;
+
+    .slider {
+      border-radius: 50%;
+      box-shadow: 0 3px 2px rgba(0,0,0,0.2), 0 0 0 1px #e3e3e3;
+      display: inline-block;
+      vertical-align: middle;
+      zoom: 1;
+      background-color: #fff;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 28px;
+      height: 28px;
+      transition: transform .3s cubic-bezier(.45,.45,.42,1.36);
+    }
+
+    &.on {
+      border-color: #02e266;
+      background-color: #02e266;
+
+      .slider {
+        box-shadow: 0 3px 2px rgba(0,0,0,0.2);
+        transform: translate(22px, 0);
+      }
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  #options {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 430px;
+    margin: -210px 0 0 -400px;
+
+    #options-left {
+      position: absolute;
+      top: 20px;
+      right: 280px;
+      bottom: 60px;
+      left: 20px;
+      text-align: left;
+
+      textarea {
+        width: 474px;
+        height: 315px;
+        resize: none;
+        padding: 10px;
+        background: none;
+        border: 1px solid #666;
+        outline: none;
+        color: #fff;
+        font-size: 14px;
+        border-radius: 3px;
+        overflow: auto;
+      }
+    }
+
+    #options-right {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      left: 540px;
+      text-align: left;
+
+      fieldset {
+        padding: 20px;
+        padding-bottom: 0;
+        border: 1px solid #666;
+        border-radius: 3px;
+
+        legend {
+          color: #666;
+          margin-left: -5px;
+          padding: 0 5px;
+        }
+
+        label {
+          display: block;
+          margin: 0 0 20px 0;
+          height: 32px;
+
+          span {
+            line-height: 32px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
+    #options-bottom {
+      position: absolute;
+      top: 380px;
+      right: 20px;
+      bottom: 20px;
+      left: 20px;
+      text-align: left;
+    }
+  }
+
+  copyright {
+    display: block;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -100px;
+    width: 200px;
+    color: #888;
+    font-weight: lighter;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.6);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
