@@ -23,14 +23,6 @@ let OptionsPanel = (function() {
         this.init();
         this.close();
       });
-
-      nodes.options_checkboxes.forEach(aChkbox => {
-        aChkbox.addEventListener('click', function(e) {
-          let realChkbox = this.querySelector('input[type=checkbox]');
-          realChkbox.checked = !realChkbox.checked;
-          realChkbox.checked ? this.classList.add('on') : this.classList.remove('on');
-        }, false);
-      });
     }
 
     init() {
@@ -39,10 +31,6 @@ let OptionsPanel = (function() {
       nodes.options_stopOnDemand.checked = this.config.stopOnDemand;
       nodes.options_lightTheme.checked = this.config.lightTheme;
       nodes.options_readOutNames.checked = this.config.readOutNames;
-      nodes.options_checkboxes.forEach(aChkbox => {        
-        let realChkbox = aChkbox.querySelector('input[type=checkbox]');
-        realChkbox.checked ? aChkbox.classList.add('on') : aChkbox.classList.remove('on');
-      });
     }
 
     save() {

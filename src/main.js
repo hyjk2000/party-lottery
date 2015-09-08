@@ -16,7 +16,6 @@ let nodes = (function() {
     optionsForm: $('#options-form'),
     optionsBrowserChk: $('.browser-compatibility-checks'),
     options_names: $('#names'),
-    options_checkboxes: $('.fancyChkbox'),
     options_removeAfterHit: $('#removeAfterHit'),
     options_stopOnDemand: $('#stopOnDemand'),
     options_lightTheme: $('#lightTheme'),
