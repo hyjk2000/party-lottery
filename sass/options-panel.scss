@@ -14,58 +14,6 @@
     }
   }
 
-  .fancy-checkbox {
-    input[type=checkbox] {
-      position: relative;
-      margin: 0;
-      vertical-align: top;
-      float: right;
-      visibility: hidden;
-
-      &:before {      
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 0;
-        display: block;
-        width: 50px;
-        height: 28px;
-        border: 2px solid rgb(227,227,227);
-        border-radius: 1.5em;
-        transition: all .3s ease-out;
-        outline: none;
-        cursor: pointer;
-        visibility: visible;
-      }
-
-      &:after {
-        content: '';
-        position: absolute;
-        right: 24px;
-        top: 2px;
-        display: block;
-        border-radius: 50%;
-        box-shadow: 0 3px 2px rgba(0,0,0,.2), 0 0 0 1px rgb(227,227,227);
-        background-color: white;
-        width: 28px;
-        height: 28px;
-        transition: transform .3s cubic-bezier(.45,.45,.42,1.36);
-        cursor: pointer;
-        visibility: visible;
-      }
-
-      &:checked:before {
-        border-color: rgb(2, 226, 102);
-        background-color: rgb(2, 226, 102);
-      }
-
-      &:checked:after {
-        box-shadow: 0 3px 2px rgba(0,0,0,.2);
-        transform: translate(22px, 0);
-      }
-    }
-  }
-
   #options {
     position: absolute;
     top: 50%;
@@ -134,6 +82,56 @@
         dd {
           width: 30%;
           text-align: right;
+
+          input[type=checkbox] {
+            position: relative;
+            margin: 0;
+            vertical-align: top;
+            float: right;
+            visibility: hidden;
+
+            &:before {      
+              content: '';
+              position: absolute;
+              right: 0;
+              top: 0;
+              display: block;
+              width: 50px;
+              height: 28px;
+              border: 2px solid rgb(227,227,227);
+              border-radius: 1.5em;
+              transition: all .3s ease-out;
+              outline: none;
+              cursor: pointer;
+              visibility: visible;
+            }
+
+            &:after {
+              content: '';
+              position: absolute;
+              right: 24px;
+              top: 2px;
+              display: block;
+              border-radius: 50%;
+              box-shadow: 0 3px 2px rgba(0,0,0,.2), 0 0 0 1px rgb(227,227,227);
+              background-color: white;
+              width: 28px;
+              height: 28px;
+              transition: transform .3s cubic-bezier(.45,.45,.42,1.36);
+              cursor: pointer;
+              visibility: visible;
+            }
+
+            &:checked:before {
+              border-color: rgb(2, 226, 102);
+              background-color: rgb(2, 226, 102);
+            }
+
+            &:checked:after {
+              box-shadow: 0 3px 2px rgba(0,0,0,.2);
+              transform: translate(22px, 0);
+            }
+          }
         }
       }
     }
