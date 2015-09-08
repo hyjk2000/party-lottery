@@ -90,6 +90,7 @@ body {
 
   button {
     display: block;
+    position: relative;
     padding: 10px;
     cursor: pointer;
     background: none;
@@ -105,6 +106,21 @@ body {
 
     &:active {
       background: rgba(255,255,255,.2);
+    }
+
+    &:after {
+      content: attr(data-title);
+      position: absolute;
+      bottom: -1em;
+      left: 50%;
+      width: 48px;
+      margin-left: -24px;
+      font-size: 14px;
+      opacity: 0;
+    }
+
+    &:hover:after {
+      opacity: 1;
     }
   }
 

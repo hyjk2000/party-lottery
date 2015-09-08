@@ -14,6 +14,7 @@ let OptionsPanel = (function() {
       });
 
       nodes.optionsForm.addEventListener('submit', e => {
+        e.preventDefault();
         this.save();
         this.namesPanel.init(true);
         this.close();

@@ -13,7 +13,7 @@ let NamesPanel = (function() {
       this.daemon = null;
 
       nodes.resetBtn.addEventListener('click', e => {
-        if (this.running || !confirm('确实要复位吗？')) return;
+        if (this.running || !confirm(nodes.resetBtn.dataset.confirm)) return;
         this.init(true);
       });
 

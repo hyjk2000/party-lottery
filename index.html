@@ -18,12 +18,12 @@
 <div id="wrapper">
   <div id="namesPanel" class="panel">
     <button id="click-area"></button>
-    <button class="icon" id="reset-btn" title="复位">&#xe601;</button>
-    <button class="icon" id="options-btn" title="设置"><span>&#xe602;</span></button>
+    <button class="icon" id="reset-btn" data-title="复位" data-confirm="确实要复位吗？">&#xe601;</button>
+    <button class="icon" id="options-btn" data-title="设置"><span>&#xe602;</span></button>
   </div>
   <div id="optionsPanel" class="panel">
     <div id="options">
-      <form id="options-form" action="javascript:;">
+      <form id="options-form">
         <div id="options-left">
           <textarea id="names" placeholder="在此输入参与者的姓名，以空格、顿号或中英文逗号分隔"></textarea>
         </div>
@@ -43,8 +43,8 @@
           </fieldset>
         </div>
         <div id="options-bottom">
-          <button type="submit" class="icon" id="optionSubmit" style="float:right" title="保存设置">&#xe603;</button>
-          <button type="button" class="icon" id="optionCancel" title="取消">&#xe600;</button>
+          <button type="submit" class="icon" id="optionSubmit" style="float:right" data-title="保存">&#xe603;</button>
+          <button type="button" class="icon" id="optionCancel" data-title="取消">&#xe600;</button>
         </div>
       </form>
     </div>
