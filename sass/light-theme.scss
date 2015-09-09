@@ -1,4 +1,4 @@
-.theme-light {
+.light-theme {
   #namesPanel {
     background: #eee;
 
@@ -10,7 +10,7 @@
         box-shadow: 0 0 20px #1e90ff;
       }
 
-      &.removed {
+      &.disabled {
         color: #aaa;
       }
     }

@@ -28,7 +28,11 @@ gulp.task("babel:watch", function () {
   gulp.watch(jsFiles, ["babel"]);
 });
 
-var sassFiles = "sass/**/*.scss";
+var sassFiles = [
+  "sass/main.scss",
+  "sass/*-panel.scss",
+  "sass/*-theme.scss",
+];
 
 gulp.task("sass", function () {
   gulp.src(sassFiles)
