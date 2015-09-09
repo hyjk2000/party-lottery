@@ -1,10 +1,10 @@
-let nodes = (function() {
+let nodes = (() => {
   let $ = (selector) => {
     return document.querySelector(selector);
   }
 
   let $$ = (selector) => {
-    return [].slice.call(document.querySelectorAll(selector));
+    return Array.from(document.querySelectorAll(selector));
   };
 
   return {

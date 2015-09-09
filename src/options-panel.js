@@ -1,4 +1,4 @@
-let OptionsPanel = (function() {
+let OptionsPanel = (() => {
   let instance = null;
 
   class OptionsPanel {

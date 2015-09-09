@@ -1,4 +1,4 @@
-let NamesPanel = (function() {
+let NamesPanel = (() => {
   let instance = null;
 
   class NamesPanel {
@@ -83,14 +83,13 @@ let NamesPanel = (function() {
 
     transformName(aName, center = true) {
       if (!aName) return false;
+      let transform = 'none';
       if (center) {
         let { width, height, left, top } = aName.getBoundingClientRect();
         let { clientWidth, clientHeight } = document.documentElement;
         let moveX = ((clientWidth - width) / 2 - left) / 5;
         let moveY = ((clientHeight - height) / 2 - top) / 5;
-        var transform = `scale(5) translate(${moveX}px, ${moveY}px)`;
-      } else {
-        var transform = 'none';
+        transform = `scale(5) translate(${moveX}px, ${moveY}px)`;
       }
       ['webkitTransform', 'transform'].forEach((prop) => {
         if (aName.style.hasOwnProperty(prop)) {

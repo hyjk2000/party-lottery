@@ -1,4 +1,4 @@
-let Config = (function() {
+let Config = (() => {
   let instance = null;
 
   const defaults = {
