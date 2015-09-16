@@ -100,6 +100,7 @@
               height: 28px;
               border: 2px solid rgb(227,227,227);
               border-radius: 1.5em;
+              background-color: rgb(215,215,215);
               transition: all .3s ease-out;
               outline: none;
               cursor: pointer;
@@ -123,8 +124,8 @@
             }
 
             &:checked:before {
-              border-color: rgb(2, 226, 102);
-              background-color: rgb(2, 226, 102);
+              border-color: rgb(2,226,102);
+              background-color: rgb(2,226,102);
             }
 
             &:checked:after {
