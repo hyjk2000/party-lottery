@@ -52,6 +52,7 @@
     }
 
     &.bouncing span {
+      display: inline-block;
       animation: bounce ease-out 2s infinite;
 
       @keyframes bounce {
