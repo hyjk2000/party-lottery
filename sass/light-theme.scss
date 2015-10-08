@@ -1,0 +1,22 @@
+.light-theme {
+  #namesPanel {
+    background: #eee;
+
+    .name {
+      color: #333;
+
+      &.on {
+        background: #1e90ff;
+        box-shadow: 0 0 20px #1e90ff;
+      }
+
+      &.disabled {
+        color: #aaa;
+      }
+    }
+
+    button {
+      background-color: #333;
+    }
+  }
+}

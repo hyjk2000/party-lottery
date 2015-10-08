@@ -1,0 +1,20 @@
+{
+  "name": "party-lottery",
+  "description": "A lottery game app for parties, weddings, team buildings, etc.",
+  "version": "2.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyjk2000/party-lottery.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-babel": "^5.2.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.4.0",
+    "gulp-watch": "^4.3.5"
+  }
+}

@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  background: #000;
+  font-family: -apple-system, "Helvetica Neue", Helvetica, "Segoe UI", "Microsoft Yahei", Arial, sans-serif;
+  font-size: 14px;
+  color: #fff;
+}
+
+@font-face {
+  font-family: "icomoon";
+  src: url('../fonts/icomoon.eot?-9ui3e8');
+  src: url('../fonts/icomoon.eot?#iefix-9ui3e8') format('embedded-opentype'),
+       url('../fonts/icomoon.woff?-9ui3e8') format('woff'),
+       url('../fonts/icomoon.ttf?-9ui3e8') format('truetype'),
+       url('../fonts/icomoon.svg?-9ui3e8#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+@mixin full-blown {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#wrapper {
+  @include full-blown;
+
+  perspective: 1600px;
+  overflow: hidden;
+
+  .panel {
+    @include full-blown;
+    @include no-select;
+
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: all 1.5s ease-in-out;
+    text-align: center;
+  }
+
+  #namesPanel {
+    z-index: 900;
+    transform: rotateY(0deg);
+  }
+
+  #optionsPanel {
+    z-index: 800;
+    transform: rotateY(-180deg);
+  }
+
+  &.flip {
+    #namesPanel {
+      transform: rotateY(180deg);
+      background-color: #000;
+    }
+
+    #optionsPanel {
+      z-index: 1000;
+      transform: rotateY(0deg);
+    }
+  }
+
+  button {
+    display: block;
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    transition-property: opacity, color;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
+    font-size: 48px;
+    color: #fff;
+    outline: none;
+    z-index: 920;
+
+    &:active {
+      background: rgba(255,255,255,.2);
+    }
+
+    &:after {
+      content: attr(data-title);
+      position: absolute;
+      bottom: -1em;
+      left: 50%;
+      width: 48px;
+      margin-left: -24px;
+      font-size: 14px;
+      opacity: 0;
+    }
+
+    &:hover:after {
+      opacity: 1;
+    }
+  }
+
+  .icon {
+    @include font-smoothing(on);
+
+    font-family: "icomoon";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  }
+}
