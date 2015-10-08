@@ -1,8 +1,10 @@
-# [Party Lottery](https://partylottery.sinaapp.com)
+# [Party Lottery](https://hyjk2000.github.io/party-lottery/)
 
 A lottery game app for parties, weddings, team buildings, etc.
 
 Also available as [Chrome App](https://chrome.google.com/webstore/detail/cmdnpelgmfofpdiioompgofknddfhphc).
+
+[Legacy version](https://partylottery.sinaapp.com) with IE8 support.
 
 Created by [James Shih](https://hyjk2000.github.io).
 
@@ -14,10 +16,10 @@ This was a toy app for use in my wedding back in 2013. I could not find a suitab
 
 Years later I found this app is still pretty useful. But the code was written in a rush and is too messy to work on.
 
-* Rewrite JavaScript in ~~CoffeeScript or~~ ECMAScript 2015
-* Rewrite CSS using Sass and Autoprefixer
-* Remove jQuery & Modernizr (along with ancient browsers support)
-* Package with [nw.js](https://github.com/nwjs/nw.js)
+- [x] Rewrite JavaScript in ~~CoffeeScript or~~ ECMAScript 2015
+- [x] Rewrite CSS using Sass and Autoprefixer
+- [x] Remove jQuery & Modernizr (along with ancient browsers support)
+- [ ] Package with [nw.js](https://github.com/nwjs/nw.js)
 
 ## Contribute
 
@@ -29,6 +31,4 @@ Copyright 2013-2015 James Shih.
 
 This software is licensed under the [MIT License](https://github.com/hyjk2000/party-lottery/blob/master/LICENSE).
 
-[IcoMoon](https://icomoon.io)
-
-Copyright 2015 Roonas. Licensed under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
+[IcoMoon](https://icomoon.io) - Copyright 2015 Roonas. Licensed under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
