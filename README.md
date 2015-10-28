@@ -16,10 +16,10 @@ This was a toy app for use in my wedding back in 2013. I could not find a suitab
 
 Years later I found this app is still pretty useful. But the code was written in a rush and is too messy to work on.
 
-- [x] Rewrite JavaScript in ~~CoffeeScript or~~ ECMAScript 2015
+- [x] Rewrite JavaScript in ECMAScript 2015
 - [x] Rewrite CSS using Sass and Autoprefixer
 - [x] Remove jQuery & Modernizr (along with ancient browsers support)
-- [ ] Package with [nw.js](https://github.com/nwjs/nw.js)
+- [x] Package with [Electron](http://electron.atom.io/)
 
 ## Contribute
 
