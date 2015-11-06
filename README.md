@@ -1,6 +1,6 @@
 # [Party Lottery](https://hyjk2000.github.io/party-lottery/)
 
-[![Code Climate](https://codeclimate.com/github/hyjk2000/party-lottery/badges/gpa.svg)](https://codeclimate.com/github/hyjk2000/party-lottery)
+[![Code Climate](https://codeclimate.com/github/hyjk2000/party-lottery/badges/gpa.svg)](https://codeclimate.com/github/hyjk2000/party-lottery) [![Dependency Status](https://david-dm.org/hyjk2000/party-lottery.svg)](https://david-dm.org/hyjk2000/party-lottery)
 
 A lottery game app for parties, weddings, team buildings, etc.
 
