@@ -1,5 +1,7 @@
 # [Party Lottery](https://hyjk2000.github.io/party-lottery/)
 
+[![Code Climate](https://codeclimate.com/github/hyjk2000/party-lottery/badges/gpa.svg)](https://codeclimate.com/github/hyjk2000/party-lottery)
+
 A lottery game app for parties, weddings, team buildings, etc.
 
 Also available as [Chrome App](https://chrome.google.com/webstore/detail/cmdnpelgmfofpdiioompgofknddfhphc).
