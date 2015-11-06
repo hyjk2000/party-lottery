@@ -23,7 +23,7 @@ let nodes = (() => {
     options_stopOnDemand: $('#stopOnDemand'),
     options_lightTheme: $('#lightTheme'),
     options_readOutNames: $('#readOutNames'),
-    options_optionCancel: $('#optionCancel'),
+    options_optionCancel: $('#optionCancel')
   };
 })();
 

@@ -7,7 +7,7 @@ let Config = (() => {
     removeAfterHit: true,
     stopOnDemand: false,
     lightTheme: false,
-    readOutNames: false,
+    readOutNames: false
   };
 
   class Config {
