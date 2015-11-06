@@ -1,8 +1,10 @@
-var app = require('app');
-var BrowserWindow = require('browser-window');
-var powerSaveBlocker = require('power-save-blocker');
-var caffeine = null;
-var mainWindow = null;
+'use strict';
+
+let app = require('app');
+let BrowserWindow = require('browser-window');
+let powerSaveBlocker = require('power-save-blocker');
+let caffeine = null;
+let mainWindow = null;
 
 app.on('window-all-closed', function() {
 	powerSaveBlocker.stop(caffeine);
@@ -12,7 +14,7 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
 	caffeine = powerSaveBlocker.start('prevent-display-sleep');
 	mainWindow = new BrowserWindow({ width: 1024, height: 640 });
-	mainWindow.loadUrl('file://' + __dirname + '/index.html');
+	mainWindow.loadUrl(`file://${__dirname}/index.html`);
 	mainWindow.on('closed', function() {
 		mainWindow = null;
 	});
