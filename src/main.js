@@ -1,3 +1,5 @@
+/*global NamesPanel OptionsPanel*/
+
 let nodes = (() => {
   let $ = (selector) => {
     return document.querySelector(selector);

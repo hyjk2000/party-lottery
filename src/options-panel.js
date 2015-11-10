@@ -1,3 +1,5 @@
+/*global Config NamesPanel nodes*/
+
 let OptionsPanel = (() => {
   let instance = null;
 

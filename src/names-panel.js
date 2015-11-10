@@ -1,3 +1,5 @@
+/*global Config nodes*/
+
 let NamesPanel = (() => {
   let instance = null;
 
