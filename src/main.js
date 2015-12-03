@@ -1,33 +1,9 @@
 /*global NamesPanel OptionsPanel*/
 
-let nodes = (() => {
-  let $ = (selector) => {
-    return document.querySelector(selector);
-  }
+require('../sass/main.scss');
+import Config from './config.js';
+import NamesPanel from './names-panel.js';
+import OptionsPanel from './options-panel.js';
 
-  let $$ = (selector) => {
-    return Array.from(document.querySelectorAll(selector));
-  };
-
-  return {
-    wrapper: $('#wrapper'),
-    namesPanel: $('#namesPanel'),
-    nameNodes: () => $$('.name'),
-    nameNodesLeft: () => $$('.name:not(.on):not(.disabled)'),
-    nameOnNode: () => $('.name.on'),
-    resetBtn: $('#reset-btn'),
-    clickArea: $('#click-area'),
-    optionsBtn: $('#options-btn'),
-    optionsPanel: $('#optionsPanel'),
-    optionsForm: $('#options-form'),
-    options_names: $('#names'),
-    options_removeAfterHit: $('#removeAfterHit'),
-    options_stopOnDemand: $('#stopOnDemand'),
-    options_lightTheme: $('#lightTheme'),
-    options_readOutNames: $('#readOutNames'),
-    options_optionCancel: $('#optionCancel')
-  };
-})();
-
-new NamesPanel(nodes).init();
-new OptionsPanel(nodes).init();
+new NamesPanel().init();
+new OptionsPanel().init();

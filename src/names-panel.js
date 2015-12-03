@@ -1,10 +1,11 @@
-/*global Config nodes*/
+import Config from './config.js';
+import Nodes from './nodes.js';
 
 let NamesPanel = (() => {
   let instance = null;
 
   class NamesPanel {
-    constructor(nodes) {
+    constructor() {
       if (instance) return instance;
       instance = this;
 
@@ -14,16 +15,16 @@ let NamesPanel = (() => {
       this.stopSignal = false;
       this.runner = null;
 
-      nodes.resetBtn.addEventListener('click', e => {
-        if (this.running || !confirm(nodes.resetBtn.dataset.confirm)) return;
+      Nodes.resetBtn.addEventListener('click', e => {
+        if (this.running || !confirm(Nodes.resetBtn.dataset.confirm)) return;
         this.init(true);
       });
 
       window.addEventListener('resize', e => {
-        for (let aName of nodes.nameNodes()) this.setNameSize(aName);
+        for (let aName of Nodes.nameNodes()) this.setNameSize(aName);
       });
 
-      nodes.clickArea.addEventListener('click', this.clickHandler.bind(this));
+      Nodes.clickArea.addEventListener('click', this.clickHandler.bind(this));
 
       document.body.addEventListener('keyup', this.clickHandler.bind(this));
     }
@@ -32,9 +33,9 @@ let NamesPanel = (() => {
       this.running = false;
       this.stopSignal = true;
 
-      for (let aName of nodes.nameNodes()) aName.parentNode.removeChild(aName);
+      for (let aName of Nodes.nameNodes()) aName.parentNode.removeChild(aName);
 
-      this.config.lightTheme ? nodes.wrapper.classList.add('light-theme') : nodes.wrapper.classList.remove('light-theme');
+      this.config.lightTheme ? Nodes.wrapper.classList.add('light-theme') : Nodes.wrapper.classList.remove('light-theme');
 
       let nameList = this.config.names.replace(/[\s\,、，]+/g, ',').split(',');
       nameList = nameList.filter(aName => { return aName != '' });
@@ -53,13 +54,13 @@ let NamesPanel = (() => {
         if (this.config.nameRemovedIndexes.indexOf(`${index}`) != -1) {
           nameDiv.classList.add('disabled');
         }
-        nodes.namesPanel.appendChild(nameDiv);
+        Nodes.namesPanel.appendChild(nameDiv);
       });
 
       if (this.nameCount < 2) {
-        nodes.optionsBtn.classList.add('bouncing');
+        Nodes.optionsBtn.classList.add('bouncing');
       } else {
-        nodes.optionsBtn.classList.remove('bouncing');
+        Nodes.optionsBtn.classList.remove('bouncing');
       }
     }
 
@@ -77,7 +78,7 @@ let NamesPanel = (() => {
 
     highlightName(aName, on = true) {
       if (!aName) return false;
-      let onName = nodes.nameOnNode();
+      let onName = Nodes.nameOnNode();
       if (onName instanceof Node) onName.classList.remove('on');
       on ? aName.classList.add('on') : aName.classList.remove('on');
       return true;
@@ -110,7 +111,7 @@ let NamesPanel = (() => {
 
     disableName(aName) {
       if (!this.config.removeAfterHit) return false;
-      this.config.nameRemovedIndexes.push(nodes.nameNodes().indexOf(aName));
+      this.config.nameRemovedIndexes.push(Nodes.nameNodes().indexOf(aName));
       this.config.save();
       aName.classList.add('disabled');
     }
@@ -118,21 +119,21 @@ let NamesPanel = (() => {
     gotoName() {
       if (this.config.stopOnDemand && this.stopSignal) {
         clearInterval(this.runner);
-        let winner = nodes.nameOnNode();
+        let winner = Nodes.nameOnNode();
         this.transformName(winner);
         this.speakName(winner);
         this.running = false;
         return;
       }
 
-      let candidates = nodes.nameNodesLeft();
+      let candidates = Nodes.nameNodesLeft();
       let idx = Math.floor(Math.random() * (candidates.length + 1));
       this.highlightName(candidates[idx]);
     }
 
     run(speed, duration) {
       if (speed >= duration || this.stopSignal) {
-        let winner = nodes.nameOnNode();
+        let winner = Nodes.nameOnNode();
         this.transformName(winner);
         this.speakName(winner);
         this.running = false;
@@ -149,7 +150,7 @@ let NamesPanel = (() => {
     }
 
     clickHandler(e) {
-      if (nodes.wrapper.classList.contains('flip')) return false;
+      if (Nodes.wrapper.classList.contains('flip')) return false;
       if (e.type == 'keyup' && [13, 32].indexOf(e.keyCode) == -1) return false;
       if (this.running) {
         if (this.config.stopOnDemand) this.stopSignal = true;
@@ -157,7 +158,7 @@ let NamesPanel = (() => {
       }
       if (this.config.nameRemovedIndexes.length >= this.nameCount) return false;
 
-      let onName = nodes.nameOnNode();
+      let onName = Nodes.nameOnNode();
       if (onName instanceof Node) {
         this.highlightName(onName, false);
         this.transformName(onName, false);
@@ -173,3 +174,5 @@ let NamesPanel = (() => {
 
   return NamesPanel;
 })();
+
+export default NamesPanel;
