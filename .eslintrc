@@ -2,6 +2,9 @@ env:
   browser: true
   node: true
   es6: true
+ecmaFeatures:
+  modules: true
+  jsx: true
 rules:
   no-alert: 0
   no-array-constructor: 0
