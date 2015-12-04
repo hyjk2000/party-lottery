@@ -10,6 +10,18 @@ Also available as [Chrome App](https://chrome.google.com/webstore/detail/cmdnpel
 
 Created by [James Shih](https://hyjk2000.github.io).
 
+## How to use
+
+```shell
+$ git clone https://github.com/hyjk2000/party-lottery.git
+$ cd party-lottery
+$ npm install
+
+$ npm run dev             # Start development server
+$ pm2 start party-lottery # Start production server
+$ webpack                 # Just pack the assets
+```
+
 ## Origin
 
 This was a toy app for use in my wedding back in 2013. I could not find a suitable and good-looking lottery app so I wrote one in a couple of hours. Some friends of mine showed interest in it. Since then I added a configuration panel and several other features to make it a real app.
