@@ -25,7 +25,7 @@ if (process.env.NODE_ENV == 'production') {
 } else {
   compiler.watch({
       aggregateTimeout: 300,
-      poll: true
+      poll: false
   }, compilerCallback);
 }
 
