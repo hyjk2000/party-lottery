@@ -8,6 +8,7 @@ let nodeStatic = require('node-static');
 let fileServer = new nodeStatic.Server('.', { gzip: true });
 let webpack = require('webpack');
 let webpackConfig = require('../webpack.config.js');
+let isProduction = process.env.NODE_ENV === 'production';
 
 // Webpack
 
@@ -20,7 +21,7 @@ let compilerCallback = (err, stats) => {
   if (jsonStats.warnings.length > 0) console.warn(jsonStats.warnings);
 }
 
-if (process.env.NODE_ENV == 'production') {
+if (isProduction) {
   compiler.run(compilerCallback);
 } else {
   compiler.watch({
@@ -31,6 +32,8 @@ if (process.env.NODE_ENV == 'production') {
 
 // Server
 
+let port = isProduction ? process.env.PORT : 3000;
+
 http.createServer((req, res) => {
     req.addListener('end', () => {
         fileServer.serve(req, res, (error, result) => {
@@ -40,6 +43,6 @@ http.createServer((req, res) => {
           }
         });
     }).resume();
-}).listen(8080);
+}).listen(port);
 
-console.log('Server started on http://localhost:8080/ ...');
+console.log('Server started on http://localhost:3000 ...');
