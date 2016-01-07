@@ -1,5 +1,6 @@
 'use strict';
 
+let webpack = require('webpack');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -30,6 +31,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin('all.css', {
       allChunks: true
     })
