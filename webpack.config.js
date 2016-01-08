@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         test: /\.(ttf|eot|svg|woff)(\?[a-z0-9#-]+)?$/,
-        loader: 'file-loader'
+        loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]'
       }
     ]
   },
