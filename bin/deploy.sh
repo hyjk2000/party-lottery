@@ -12,7 +12,6 @@ git init "$DEPLOY_ROOT"
 cp index.prod.html deploy/index.html
 cp apple-touch-icon.png deploy/
 cp favicon.ico deploy/
-cp lottery.appcache deploy/
 cp LICENSE deploy/
 cp -R dist deploy/
 rm -f deploy/dist/*.map
@@ -21,7 +20,7 @@ cp node_modules/babel-polyfill/dist/polyfill.min.js deploy/dist/browser-polyfill
 cd $DEPLOY_ROOT
 
 echo "CACHE MANIFEST" > lottery.appcache
-echo "# Rev.$DEPLOY_TIME" >> lottery.appcache
+echo "# Deploy: $DEPLOY_TIME" >> lottery.appcache
 find dist/* -print >> lottery.appcache
 
 git add .
