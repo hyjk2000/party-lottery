@@ -10,8 +10,9 @@ script:
   - npm run deploy
 
 env:
-  - NODE_ENV=production
-  - CXX=g++-4.8
+  global:
+    - NODE_ENV=production
+    - CXX=g++-4.8
 addons:
   apt:
     sources:
