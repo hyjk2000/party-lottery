@@ -8,8 +8,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "serve": "bin/server.js",
-    "build": "node_modules/webpack/bin/webpack.js "
+    "build": "node_modules/webpack/bin/webpack.js",
+    "deploy": "bin/deploy",
+    "serve": "bin/server.js"
   },
   "dependencies": {
     "autoprefixer-loader": "^3.2.0",

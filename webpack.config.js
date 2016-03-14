@@ -8,7 +8,7 @@ module.exports = {
   entry: [`${__dirname}/src/main.js`],
   output: {
     path: `${__dirname}/dist`,
-    publicPath: '/dist/',
+    publicPath: 'dist/',
     filename: 'all.js'
   },
   module: {
