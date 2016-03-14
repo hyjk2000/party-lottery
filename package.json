@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "build": "node_modules/webpack/bin/webpack.js",
-    "deploy": "bin/deploy",
+    "deploy": "bin/deploy.sh",
     "serve": "bin/server.js"
   },
   "dependencies": {
