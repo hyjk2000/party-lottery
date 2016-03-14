@@ -17,9 +17,10 @@ $ git clone https://github.com/hyjk2000/party-lottery.git
 $ cd party-lottery
 $ npm install
 
-$ npm run dev             # Start development server
-$ pm2 start party-lottery # Start production server
-$ webpack                 # Just pack the assets
+$ npm run serve             # Start development server
+$ npm run build             # Pack the assets
+
+$ pm2 start party-lottery   # Start production server
 ```
 
 ## Origin
