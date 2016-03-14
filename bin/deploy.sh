@@ -23,6 +23,9 @@ echo "CACHE MANIFEST" > lottery.appcache
 echo "# Deploy: $DEPLOY_TIME" >> lottery.appcache
 find dist/* -print >> lottery.appcache
 
+git config user.name "CI"
+git config user.email "ci@party-lottery.dummy"
+
 git add .
 git commit -m "Deploy to GitHub Pages"
 git push --force --quiet "https://$CI_USER_TOKEN@github.com/hyjk2000/party-lottery.git" master:gh-pages > /dev/null 2>&1
