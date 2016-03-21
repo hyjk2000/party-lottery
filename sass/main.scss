@@ -110,7 +110,7 @@ body {
       background: rgba(255,255,255,.2);
     }
 
-    &:after {
+    &::after {
       content: attr(data-title);
       position: absolute;
       bottom: -1.5em;
@@ -121,7 +121,7 @@ body {
       opacity: 0;
     }
 
-    &:hover:after {
+    &:hover::after {
       opacity: 1;
     }
   }
