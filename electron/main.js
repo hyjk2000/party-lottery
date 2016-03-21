@@ -14,7 +14,7 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
 	caffeine = powerSaveBlocker.start('prevent-display-sleep');
 	mainWindow = new BrowserWindow({ width: 1024, height: 640 });
-	mainWindow.loadUrl(`file://${__dirname}/index.html`);
+	mainWindow.loadURL(`file://${__dirname}/index.html`);
 	mainWindow.on('closed', function() {
 		mainWindow = null;
 	});

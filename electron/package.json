@@ -3,5 +3,9 @@
   "description": "A lottery game app for parties, weddings, team buildings, etc.",
   "version": "2.0.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyjk2000/party-lottery.git"
+  },
   "main": "main.js"
 }
