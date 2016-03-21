@@ -11,7 +11,7 @@ git init "$DEPLOY_ROOT"
 
 cp index.prod.html deploy/index.html
 cp apple-touch-icon.png deploy/
-cp favicon.ico deploy/
+cp favicon.png deploy/
 cp LICENSE deploy/
 cp -R dist deploy/
 rm -f deploy/dist/*.map
