@@ -94,7 +94,7 @@ class NamesPanel {
       transform = `scale(5) translate(${moveX}px, ${moveY}px)`;
     }
     ['webkitTransform', 'transform'].forEach((prop) => {
-      if (aName.style.hasOwnProperty(prop)) {
+      if (prop in aName.style) {
         aName.style[prop] = transform;
       }
     });
