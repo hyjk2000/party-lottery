@@ -10,6 +10,7 @@
   "scripts": {
     "build": "node_modules/webpack/bin/webpack.js",
     "deploy": "bin/deploy.sh",
+    "pack": "bin/pack.sh",
     "serve": "bin/server.js"
   },
   "dependencies": {
@@ -25,5 +26,9 @@
     "node-static": "^0.7.7",
     "sass-loader": "^3.2.0",
     "webpack": "^1.12.14"
+  },
+  "devDependencies": {
+    "electron-packager": "^5.2.1",
+    "electron-prebuilt": "^0.37.2"
   }
 }
