@@ -1,20 +1,20 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
-PACK_ROOT="$PWD/pack"
+PACK_ROOT="pack"
 PACK_TIME=`date +"%Y%m%dT%H%M%S"`
 
-if [ -d "$PACK_ROOT" ]; then
-  rm -rf "$PACK_ROOT"
+if [ -d $PACK_ROOT ]; then
+  rm -rf $PACK_ROOT
 fi
 
-mkdir "$PACK_ROOT"
+mkdir $PACK_ROOT
 
-cp electron/* "$PACK_ROOT/"
-cp favicon.png "$PACK_ROOT/"
-cp -R dist "$PACK_ROOT/"
-rm -f "$PACK_ROOT/dist/*.map"
+cp electron/* $PACK_ROOT/
+cp favicon.png $PACK_ROOT/
+cp -R dist $PACK_ROOT/
+rm -f $PACK_ROOT/dist/*.map
 
-node_modules/electron-packager/cli.js "$PACK_ROOT" "Party Lottery" \
+node_modules/electron-packager/cli.js $PACK_ROOT "Party Lottery" \
   --platform=win32 \
   --arch=ia32 \
   --asar=true \
