@@ -18,7 +18,7 @@ node_modules/electron-packager/cli.js $PACK_ROOT "Party Lottery" \
   --platform=win32 \
   --arch=ia32 \
   --asar=true \
-  --icon=app-icon.ico
+  --icon=app-icon.ico \
   --app-copyright="Copyright (c) 2015 James Shih" \
   --app-version="2.0.0" \
   --build-version="2.0.0-$PACK_TIME" \
