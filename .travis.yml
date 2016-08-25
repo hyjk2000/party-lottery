@@ -5,6 +5,10 @@ cache:
 node_js:
   - 4.2
 
+branches:
+  only:
+  - master
+
 script:
   - npm run build
   - npm run deploy
