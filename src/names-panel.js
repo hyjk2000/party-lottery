@@ -89,9 +89,10 @@ class NamesPanel {
     if (center) {
       let { width, height, left, top } = aName.getBoundingClientRect();
       let { clientWidth, clientHeight } = document.documentElement;
-      let moveX = ((clientWidth - width) / 2 - left) / 5;
-      let moveY = ((clientHeight - height) / 2 - top) / 5;
-      transform = `scale(5) translate(${moveX}px, ${moveY}px)`;
+      let scale = Math.min(clientWidth / width, clientHeight / height) * 0.6;
+      let moveX = ((clientWidth - width) / 2 - left) / scale;
+      let moveY = ((clientHeight - height) / 2 - top) / scale;
+      transform = `scale(${scale}) translate(${moveX}px, ${moveY}px)`;
     }
     ['webkitTransform', 'transform'].forEach((prop) => {
       if (prop in aName.style) {
