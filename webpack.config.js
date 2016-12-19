@@ -5,23 +5,20 @@ let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
-  entry: [`${__dirname}/src/main.js`],
+  entry: ['./src/main.js'],
   output: {
-    path: `${__dirname}/dist`,
-    filename: 'all.js'
+    path: './dist',
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015']
-        }
+        loader: 'babel-loader?presets[]=es2015'
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css?sourceMap!autoprefixer!sass?sourceMap')
+        loader: ExtractTextPlugin.extract('css-loader?sourceMap!sass-loader?sourceMap!autoprefixer')
       },
       {
         test: /\.(ttf|eot|svg|woff)(\?[a-z0-9#-]+)?$/,
@@ -31,8 +28,9 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin('all.css', {
-      allChunks: true
+    new ExtractTextPlugin('bundle.css', {
+      allChunks: true,
+      disable: false
     })
   ]
 };

@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/env node
 /*eslint no-console:0*/
 
 'use strict';
@@ -25,8 +25,8 @@ if (isProduction) {
   compiler.run(compilerCallback);
 } else {
   compiler.watch({
-      aggregateTimeout: 300,
-      poll: false
+    aggregateTimeout: 300,
+    poll: false
   }, compilerCallback);
 }
 
@@ -35,14 +35,14 @@ if (isProduction) {
 let port = isProduction ? process.env.PORT : 3000;
 
 http.createServer((req, res) => {
-    req.addListener('end', () => {
-        fileServer.serve(req, res, (error, result) => {
-          if (error) {
-              res.writeHead(error.status, error.headers);
-              res.end();
-          }
-        });
-    }).resume();
+  req.addListener('end', () => {
+    fileServer.serve(req, res, (error, result) => {
+      if (error) {
+        res.writeHead(error.status, error.headers);
+        res.end();
+      }
+    });
+  }).resume();
 }).listen(port);
 
 console.log('Server started on http://localhost:3000 ...');
