@@ -14,7 +14,3 @@ branches:
 script:
   - npm run build
   - npm run deploy
-
-env:
-  global:
-    - NODE_ENV=production
