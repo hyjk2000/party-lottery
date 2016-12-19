@@ -17,8 +17,9 @@ $ git clone https://github.com/hyjk2000/party-lottery.git
 $ cd party-lottery
 $ npm install
 
-$ npm run serve             # Start development server
-$ npm run build             # Pack the assets
+$ npm start                 # Start development server
+$ npm run build             # Build the assets
+$ npm run pack              # Build Electron app
 
 $ pm2 start party-lottery   # Start production server
 ```

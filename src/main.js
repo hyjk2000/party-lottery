@@ -1,4 +1,4 @@
-require('../sass/main.scss');
+import '../sass/main.scss';
 import NamesPanel from './names-panel.js';
 import OptionsPanel from './options-panel.js';
 

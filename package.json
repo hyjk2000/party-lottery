@@ -11,7 +11,7 @@
     "build": "node_modules/.bin/webpack",
     "deploy": "bin/deploy",
     "pack": "bin/pack",
-    "serve": "bin/server"
+    "start": "bin/server"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
@@ -24,7 +24,6 @@
     "electron-prebuilt": "^1.4.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
-    "node-sass": "^4.1.0",
     "node-static": "^0.7.7",
     "sass-loader": "^4.1.0",
     "webpack": "^1.14.0"
