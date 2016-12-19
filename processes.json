@@ -1,11 +1,10 @@
 {
   "apps": [{
     "name": "party-lottery",
-    "script": "bin/server.js",
-    "watch": true,
+    "script": "bin/server",
+    "watch": false,
     "env": {
-      "NODE_ENV": "production",
-      "PORT": 80
+      "NODE_ENV": "production"
     }
   }]
 }

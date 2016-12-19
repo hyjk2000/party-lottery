@@ -1,5 +1,6 @@
 'use strict';
 
+let path = require('path');
 let webpack = require('webpack');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -7,7 +8,8 @@ module.exports = {
   devtool: 'source-map',
   entry: ['./src/main.js'],
   output: {
-    path: './dist',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: 'dist/',
     filename: 'bundle.js'
   },
   module: {
@@ -22,7 +24,7 @@ module.exports = {
       },
       {
         test: /\.(ttf|eot|svg|woff)(\?[a-z0-9#-]+)?$/,
-        loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]'
+        loader: 'file-loader?publicPath=./&name=[name]-[sha512:hash:base64:7].[ext]'
       }
     ]
   },

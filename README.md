@@ -21,7 +21,7 @@ $ npm start                 # Start development server
 $ npm run build             # Build the assets
 $ npm run pack              # Build Electron app
 
-$ pm2 start party-lottery   # Start production server
+$ pm2 start processes.json  # Start production server
 ```
 
 ## Origin
