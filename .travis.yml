@@ -14,4 +14,9 @@ branches:
 
 script:
   - npm run build
-  - npm run deploy
+
+deploy:
+  provider: script
+  script: bin/deploy
+  on:
+    branch: master
