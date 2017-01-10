@@ -18,5 +18,6 @@ script:
 deploy:
   provider: script
   script: bin/deploy
+  skip_cleanup: true
   on:
     branch: master
