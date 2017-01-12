@@ -18,6 +18,7 @@ $ cd party-lottery
 $ npm install
 
 $ npm start                 # Start development server
+$ npm run eslint            # Lint the code
 $ npm run build             # Build the assets
 $ npm run pack              # Build Electron app
 
