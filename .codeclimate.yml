@@ -2,10 +2,14 @@
 engines:
   eslint:
     enabled: true
-  fixme:
-    enabled: false
+  scss-lint:
+    enabled: true
 ratings:
   paths:
-  - "**.js"
-  - "**.jsx"
-exclude_paths: []
+  - src/**
+  - sass/**
+  - "*.js"
+  - "*.scss"
+exclude_paths:
+- chrome-app/**
+- electron/**
