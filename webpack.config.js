@@ -1,8 +1,8 @@
 'use strict';
 
-let path = require('path');
-let webpack = require('webpack');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css-loader?sourceMap!sass-loader?sourceMap!autoprefixer')
+        loader: ExtractTextPlugin.extract('css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap')
       },
       {
         test: /\.(ttf|eot|svg|woff)(\?[a-z0-9#-]+)?$/,
@@ -31,7 +31,8 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin('bundle.css', {
+    new ExtractTextPlugin({
+      filename: 'bundle.css',
       allChunks: true,
       disable: false
     })
