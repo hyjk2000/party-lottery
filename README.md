@@ -4,7 +4,7 @@
 
 A lottery game app for parties, weddings, team buildings, etc.
 
-[<img width="248" alt="available-in-the-chrome-web-store" src="https://cloud.githubusercontent.com/assets/4647136/25934360/ed9989b2-364f-11e7-8576-8a7e1cf53a26.png">](https://chrome.google.com/webstore/detail/cmdnpelgmfofpdiioompgofknddfhphc)
+[<img width="248" alt="available-in-the-chrome-web-store" src="//cloud.githubusercontent.com/assets/4647136/25934722/188a6b76-3652-11e7-9f5c-fe7334371744.png">](https://chrome.google.com/webstore/detail/cmdnpelgmfofpdiioompgofknddfhphc)
 
 [Legacy version](https://partylottery.sinaapp.com) with IE8 support.
 
