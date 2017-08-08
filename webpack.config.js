@@ -56,6 +56,7 @@ module.exports = {
       filename: 'bundle.[hash:8].css'
     }),
     new CopyPlugin([
+      { from: 'node_modules/babel-polyfill/dist/polyfill.min.js', to: 'babel-polyfill.min.js' },
       { from: 'apple-touch-icon.png' },
       { from: 'favicon.png' },
       { from: 'LICENSE' }
