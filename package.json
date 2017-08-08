@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --inline --hot",
+    "start": "node_modules/.bin/webpack-dev-server --devtool source-map --inline --hot",
     "eslint": "node_modules/.bin/eslint src",
     "build": "node_modules/.bin/webpack",
     "pack": "bin/pack"
