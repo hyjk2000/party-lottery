@@ -15,14 +15,12 @@ Created by [James Shih](https://hyjk2000.github.io).
 ```shell
 $ git clone https://github.com/hyjk2000/party-lottery.git
 $ cd party-lottery
-$ npm install
+$ yarn
 
-$ npm start                 # Start development server
-$ npm run eslint            # Lint the code
-$ npm run build             # Build the assets
-$ npm run pack              # Build Electron app
-
-$ pm2 start processes.json  # Start production server
+$ yarn start                 # Start development server
+$ yarn eslint                # Lint the code
+$ yarn build                 # Build the assets
+$ yarn run pack              # Build Electron app
 ```
 
 ## Origin

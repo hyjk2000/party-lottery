@@ -1,34 +1,41 @@
 {
   "name": "party-lottery",
   "description": "A lottery game app for parties, weddings, team buildings, etc.",
-  "version": "2.1.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hyjk2000/party-lottery.git"
-  },
+  "version": "2.1.1",
+  "repository": "https://github.com/hyjk2000/party-lottery.git",
+  "author": "James Shih <gtx1024@gmail.com>",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --devtool source-map --inline --hot",
-    "eslint": "node_modules/.bin/eslint src",
-    "build": "node_modules/.bin/webpack",
+    "start": "webpack-dev-server --devtool source-map --inline --hot",
+    "build": "NODE_ENV=production webpack --optimize-minimize",
+    "eslint": "eslint src",
     "pack": "bin/pack"
   },
   "devDependencies": {
+    "appcache-webpack-plugin": "^1.3.0",
     "babel-core": "^7.0.0-alpha.9",
     "babel-loader": "^7.0.0",
     "babel-polyfill": "^7.0.0-alpha.9",
     "babel-preset-es2015": "^7.0.0-alpha.9",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.1",
-    "electron-packager": "^8.7.0",
-    "electron-prebuilt": "^1.4.0",
-    "eslint": "^3.19.0",
-    "extract-text-webpack-plugin": "^2.1.0",
+    "ejs": "^2.5.7",
+    "ejs-html-loader": "^3.1.0",
+    "eslint": "^4.4.1",
+    "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.0",
+    "html-loader": "^0.5.0",
+    "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.0.0",
     "node-static": "^0.7.0",
     "postcss-loader": "^2.0.5",
     "sass-loader": "^6.0.0",
-    "webpack": "^2.5.0",
+    "webpack": "^3.4.1",
     "webpack-dev-server": "^2.4.0"
+  },
+  "optionalDependencies": {
+    "electron": "^1.4.0",
+    "electron-packager": "^8.7.0"
   }
 }

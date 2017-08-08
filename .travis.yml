@@ -3,22 +3,19 @@ sudo: false
 
 language: node_js
 node_js:
-  - 6
-cache:
-  directories:
-    - node_modules
-
-branches:
-  only:
-    - master
+  - 8
+cache: 
+  - yarn
+  - node_modules
 
 script:
-  - npm run eslint
-  - npm run build
+  - yarn eslint
+  - yarn build
 
 deploy:
-  provider: script
-  script: bin/deploy
+  provider: pages
   skip_cleanup: true
+  github_token: $CI_USER_TOKEN
+  local_dir: dist
   on:
     branch: master

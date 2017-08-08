@@ -2,17 +2,33 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const AppCachePlugin = require('appcache-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: ['./src/main.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'dist/',
-    filename: 'bundle.js'
+    filename: 'bundle.[hash:8].js'
   },
   module: {
-    loaders: [
+    rules: [
+      {
+        test: /\.ejs$/,
+        use: [
+          'html-loader',
+          {
+            loader: 'ejs-html-loader',
+            options: {
+              production: process.env.NODE_ENV === 'production',
+              electron: process.env.NODE_ENV === 'electron',
+              timestamp: new Date().getTime()
+            }
+          }
+        ]
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -24,16 +40,28 @@ module.exports = {
       },
       {
         test: /\.(ttf|eot|svg|woff)(\?[a-z0-9#-]+)?$/,
-        loader: 'file-loader?publicPath=./&name=[name]-[sha512:hash:base64:7].[ext]'
+        loader: 'file-loader?publicPath=./&name=[name].[hash:8].[ext]'
       }
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true
+    }),
+    new HtmlPlugin({
+      filename: 'index.html',
+      template: './index.html.ejs'
+    }),
     new ExtractTextPlugin({
-      filename: 'bundle.css',
-      allChunks: true,
-      disable: false
+      filename: 'bundle.[hash:8].css'
+    }),
+    new CopyPlugin([
+      { from: 'apple-touch-icon.png' },
+      { from: 'favicon.png' },
+      { from: 'LICENSE' }
+    ]),
+    new AppCachePlugin({
+      output: 'lottery.appcache'
     })
   ]
 };

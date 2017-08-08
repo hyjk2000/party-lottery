@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
+DIST_ROOT="dist"
 PACK_ROOT="pack"
 PACK_TIME=`date +"%Y%m%dT%H%M%S"`
 
@@ -7,12 +8,16 @@ if [ -d $PACK_ROOT ]; then
   rm -rf $PACK_ROOT
 fi
 
+rm -rf $DIST_ROOT
+NODE_ENV=electron node_modules/.bin/webpack --optimize-minimize
+
 mkdir $PACK_ROOT
 
 cp electron/* $PACK_ROOT/
 cp favicon.png $PACK_ROOT/
 cp -R dist $PACK_ROOT/
 rm -f $PACK_ROOT/dist/*.map
+rm -f $PACK_ROOT/dist/*.appcache
 
 node_modules/electron-packager/cli.js $PACK_ROOT "Party Lottery" \
   --platform=win32 \
