@@ -9,7 +9,7 @@ if [ -d $PACK_ROOT ]; then
 fi
 
 rm -rf $DIST_ROOT
-NODE_ENV=electron node_modules/.bin/webpack --optimize-minimize
+node_modules/.bin/cross-env NODE_ENV=electron node_modules/.bin/webpack --optimize-minimize
 
 mkdir $PACK_ROOT
 
@@ -19,12 +19,13 @@ cp -R dist $PACK_ROOT/
 rm -f $PACK_ROOT/dist/*.map
 rm -f $PACK_ROOT/dist/*.appcache
 
-node_modules/electron-packager/cli.js $PACK_ROOT "Party Lottery" \
+node_modules/.bin/electron-packager $PACK_ROOT "Party Lottery" \
+  --electron-version=1.7.5 \
   --platform=win32 \
   --arch=ia32 \
   --asar=true \
   --icon=app-icon.ico \
   --app-copyright="Copyright (c) 2015 James Shih" \
-  --app-version="2.2.0" \
-  --build-version="2.2.0-$PACK_TIME" \
+  --app-version="2.1.1" \
+  --build-version="2.1.1-$PACK_TIME" \
   --overwrite

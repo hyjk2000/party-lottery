@@ -15,5 +15,3 @@ deploy:
   skip_cleanup: true
   github_token: $CI_USER_TOKEN
   local_dir: dist
-  on:
-    branch: master

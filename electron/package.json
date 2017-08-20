@@ -1,7 +1,7 @@
 {
   "name": "party-lottery",
   "description": "A lottery game app for parties, weddings, team buildings, etc.",
-  "version": "2.2.0",
+  "version": "2.1.1",
   "license": "MIT",
   "repository": {
     "type": "git",

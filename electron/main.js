@@ -1,21 +1,25 @@
 'use strict';
 
-let app = require('app');
-let BrowserWindow = require('browser-window');
-let powerSaveBlocker = require('power-save-blocker');
+const { app, BrowserWindow, powerSaveBlocker } = require('electron');
+const path = require('path');
+const url = require('url');
 let caffeine = null;
-let mainWindow = null;
+let win = null;
 
-app.on('window-all-closed', function() {
+app.on('window-all-closed', () => {
 	powerSaveBlocker.stop(caffeine);
 	app.quit();
 });
 
-app.on('ready', function() {
+app.on('ready', () => {
 	caffeine = powerSaveBlocker.start('prevent-display-sleep');
-	mainWindow = new BrowserWindow({ width: 1024, height: 640 });
-	mainWindow.loadURL(`file://${__dirname}/index.html`);
-	mainWindow.on('closed', function() {
-		mainWindow = null;
+	win = new BrowserWindow({ width: 1024, height: 640 });
+	win.loadURL(url.format({
+    pathname: path.join(__dirname, 'dist', 'index.html'),
+    protocol: 'file:',
+    slashes: true
+  }));
+	win.on('closed', () => {
+		win = null;
 	});
 });
