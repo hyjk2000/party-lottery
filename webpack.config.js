@@ -2,10 +2,10 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const AppCachePlugin = require('appcache-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 module.exports = {
   entry: ['./src/main.js'],
@@ -59,10 +59,16 @@ module.exports = {
       { from: 'node_modules/babel-polyfill/dist/polyfill.min.js', to: 'babel-polyfill.min.js' },
       { from: 'apple-touch-icon.png' },
       { from: 'favicon.png' },
+      { from: 'manifest.webmanifest' },
       { from: 'LICENSE' }
     ]),
-    new AppCachePlugin({
-      output: 'lottery.appcache'
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'party-lottery',
+      dontCacheBustUrlsMatching: /\.\w{8}\./,
+      filename: 'service-worker.js',
+      minify: true,
+      navigateFallback: '/party-lottery/',
+      staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/, /\.appcache$/]
     })
   ]
 };

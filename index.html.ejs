@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<% if (production) { %>
-  <html manifest="lottery.appcache">
-<% } else { %>
-  <html>
-<% } %>
+<html>
 
 <head>
   <meta charset="utf-8">
@@ -14,6 +10,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
   <% if (production) { %>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -62,7 +59,7 @@
         </div>
       </form>
     </div>
-    <copyright>&copy; MMXIII-MMXV <a href="http://hyjk2000.github.io/" <%= electron ? 'target=_system' : '' %>>James Shih</a></copyright>
+    <copyright>&copy; MMXIII-MMXV <a href="https://hyjk2000.github.io/" <%= electron ? 'target=_system' : '' %>>James Shih</a></copyright>
     <% if (production || electron) { %>
       <a href="https://github.com/hyjk2000/party-lottery" <%= electron ? 'target=_system' : '' %> style="position:fixed; top:40px; right:-58px; color:#fff; text-decoration:none; background-color:#000; display:inline-block; padding:5px 50px; -webkit-transform:rotate(45deg); transform:rotate(45deg); border-width:2px 0; border-style:dotted; border-color:#aaa; opacity:.5;">Fork me on GitHub</a>
     <% } %>
@@ -71,6 +68,14 @@
 
 <% if (production) { %>
   <script src="babel-polyfill.min.js"></script>
+<% } %>
+
+<% if (production && !electron) { %>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js');
+    }
+  </script>
 <% } %>
 </body>
 

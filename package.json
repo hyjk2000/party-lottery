@@ -2,8 +2,9 @@
   "name": "party-lottery",
   "description": "A lottery game app for parties, weddings, team buildings, etc.",
   "version": "2.1.1",
-  "repository": "https://github.com/hyjk2000/party-lottery.git",
+  "repository": "hyjk2000/party-lottery",
   "author": "James Shih <gtx1024@gmail.com>",
+  "homepage": "https://hyjk2000.github.io/party-lottery/",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
@@ -13,7 +14,6 @@
     "pack": "bin/pack"
   },
   "devDependencies": {
-    "appcache-webpack-plugin": "^1.3.0",
     "babel-core": "^7.0.0-alpha.9",
     "babel-loader": "^7.0.0",
     "babel-polyfill": "^7.0.0-alpha.9",
@@ -32,6 +32,7 @@
     "node-static": "^0.7.0",
     "postcss-loader": "^2.0.5",
     "sass-loader": "^6.0.0",
+    "sw-precache-webpack-plugin": "^0.11.5",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.4.0"
   },
