@@ -1,0 +1,16 @@
+{
+  "name": "派对抽奖",
+  "short_name": "派对抽奖",
+  "description": "在派对、婚礼、公司年会等活动现场举行抽奖活动",
+  "lang": "zh-CN",
+  "icons": [{
+    "src": "apple-touch-icon.png",
+    "type": "image/png",
+    "sizes": "144x144"
+  }],
+  "start_url": "./?utm_source=homescreen",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#000",
+  "orientation": "landscape"
+}
