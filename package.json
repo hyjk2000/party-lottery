@@ -11,7 +11,9 @@
     "start": "webpack-dev-server --devtool source-map --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --optimize-minimize",
     "eslint": "eslint src",
-    "pack": "bin/pack"
+    "pack": "bin/pack",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "devDependencies": {
     "babel-core": "^7.0.0-alpha.9",
@@ -38,5 +40,9 @@
   },
   "optionalDependencies": {
     "electron-packager": "^8.7.0"
+  },
+  "snyk": true,
+  "dependencies": {
+    "@snyk/protect": "latest"
   }
 }
