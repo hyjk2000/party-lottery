@@ -1,0 +1,67 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - electron-packager > debug:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:debug:20170905'
+        path: electron-packager > debug
+    - electron-packager > electron-download > debug:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:debug:20170905'
+        path: electron-packager > electron-download > debug
+    - electron-packager > electron-osx-sign > debug:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:debug:20170905'
+        path: electron-packager > electron-osx-sign > debug
+    - electron-packager > get-package-info > debug:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:debug:20170905'
+        path: electron-packager > get-package-info > debug
+    - electron-packager > electron-download > nugget > debug:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:debug:20170905'
+        path: electron-packager > electron-download > nugget > debug
+    - electron-packager > electron-download > sumchecker > debug:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:debug:20170905'
+        path: electron-packager > electron-download > sumchecker > debug
+    - electron-packager > extract-zip > debug:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:debug:20170905'
+        path: electron-packager > extract-zip > debug
+  'npm:extend:20180424':
+    - electron-packager > asar > mksnapshot > request > extend:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:extend:20180424'
+        path: electron-packager > asar > mksnapshot > request > extend
+  'npm:hoek:20180212':
+    - electron-packager > asar > mksnapshot > request > hawk > hoek:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:hoek:20180212'
+        path: electron-packager > asar > mksnapshot > request > hawk > hoek
+    - electron-packager > asar > mksnapshot > request > hawk > boom > hoek:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:hoek:20180212'
+        path: electron-packager > asar > mksnapshot > request > hawk > boom > hoek
+    - electron-packager > asar > mksnapshot > request > hawk > sntp > hoek:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:hoek:20180212'
+        path: electron-packager > asar > mksnapshot > request > hawk > sntp > hoek
+  'npm:ms:20170412':
+    - electron-packager > extract-zip > debug > ms:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:ms:20170412'
+        path: electron-packager > extract-zip > debug > ms
+  'npm:stringstream:20180511':
+    - electron-packager > asar > mksnapshot > request > stringstream:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:stringstream:20180511'
+        path: electron-packager > asar > mksnapshot > request > stringstream
+  'npm:tough-cookie:20170905':
+    - electron-packager > asar > mksnapshot > request > tough-cookie:
+        patched: '2023-08-31T15:07:35.324Z'
+        id: 'npm:tough-cookie:20170905'
+        path: electron-packager > asar > mksnapshot > request > tough-cookie
