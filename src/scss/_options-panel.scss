@@ -1,15 +1,15 @@
-#optionsPanel {
+#wrapper > #optionsPanel {
   background-color: #333;
   background-image: radial-gradient(circle closest-corner at center bottom, #444 0%, #333 100%);
 
   button {
     color: #ccc;
 
-    &[type=submit]:hover {
+    &[type="submit"]:hover {
       color: #4cd964;
     }
 
-    &[type=button]:hover {
+    &[type="button"]:hover {
       color: #ff2d55;
     }
   }
@@ -69,7 +69,8 @@
           overflow: hidden;
         }
 
-        dt, dd {
+        dt,
+        dd {
           height: 52px;
           line-height: 32px;
           float: left;
@@ -84,44 +85,46 @@
           width: 30%;
           text-align: right;
 
-          input[type=checkbox] {
+          input[type="checkbox"] {
             display: none;
           }
 
-          input[type=checkbox] + label {
+          input[type="checkbox"] + label {
             position: absolute;
             display: block;
             top: 0;
             right: 0;
             width: 50px;
             height: 28px;
-            border: 2px solid rgb(227,227,227);
+            border: 2px solid rgb(227, 227, 227);
             border-radius: 1.5em;
-            background-color: rgb(227,227,227);
-            transition: all .3s ease-out;
+            background-color: rgb(227, 227, 227);
+            transition: all 0.3s ease-out;
             cursor: pointer;
 
             &::after {
-              content: '';
+              content: "";
               position: absolute;
               display: block;
               top: 0;
               left: 0;
               border-radius: 50%;
-              box-shadow: 0 3px 2px rgba(0,0,0,.2), 0 0 0 1px rgb(227,227,227);
+              box-shadow:
+                0 3px 2px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgb(227, 227, 227);
               background-color: white;
               width: 28px;
               height: 28px;
-              transition: transform .3s cubic-bezier(.45,.45,.42,1.36);
+              transition: transform 0.3s cubic-bezier(0.45, 0.45, 0.42, 1.36);
             }
           }
 
-          input[type=checkbox]:checked + label {
-            border-color: rgb(2,226,102);
-            background-color: rgb(2,226,102);
+          input[type="checkbox"]:checked + label {
+            border-color: rgb(2, 226, 102);
+            background-color: rgb(2, 226, 102);
 
             &::after {
-              box-shadow: 0 3px 2px rgba(0,0,0,.2);
+              box-shadow: 0 3px 2px rgba(0, 0, 0, 0.2);
               transform: translate(22px, 0);
             }
           }
@@ -150,7 +153,7 @@
     color: #888;
     font-weight: lighter;
     text-align: center;
-    text-shadow: 0 -1px 0 rgba(0,0,0,.6);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
 
     a {
       color: inherit;
@@ -160,5 +163,21 @@
         text-decoration: underline;
       }
     }
+  }
+
+  #github-link {
+    position: fixed;
+    top: 40px;
+    right: -58px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #000;
+    display: inline-block;
+    padding: 5px 50px;
+    transform: rotate(45deg);
+    border-width: 2px 0;
+    border-style: dotted;
+    border-color: #aaa;
+    opacity: 0.5;
   }
 }

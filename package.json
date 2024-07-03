@@ -1,42 +1,34 @@
 {
   "name": "party-lottery",
   "description": "A lottery game app for parties, weddings, team buildings, etc.",
-  "version": "2.1.1",
-  "repository": "hyjk2000/party-lottery",
-  "author": "James Shih <gtx1024@gmail.com>",
-  "homepage": "https://hyjk2000.github.io/party-lottery/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyjk2000/party-lottery"
+  },
+  "author": {
+    "name": "James Shih",
+    "url": "https://jshih.dev"
+  },
   "license": "MIT",
-  "main": "index.js",
+  "homepage": "https://party-lottery.pages.dev",
+  "private": true,
+  "version": "3.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">= 20.15.0"
+  },
   "scripts": {
-    "start": "webpack-dev-server --devtool source-map --inline --hot",
-    "build": "cross-env NODE_ENV=production webpack --optimize-minimize",
-    "eslint": "eslint src",
-    "pack": "bin/pack"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
   "devDependencies": {
-    "babel-core": "^7.0.0-alpha.9",
-    "babel-loader": "^7.0.0",
-    "babel-polyfill": "^7.0.0-alpha.9",
-    "babel-preset-es2015": "^7.0.0-alpha.9",
-    "copy-webpack-plugin": "^4.0.1",
-    "cross-env": "^5.0.5",
-    "css-loader": "^0.28.1",
-    "ejs": "^2.5.7",
-    "ejs-html-loader": "^3.1.0",
-    "eslint": "^4.4.1",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "file-loader": "^0.11.0",
-    "html-loader": "^0.5.0",
-    "html-webpack-plugin": "^2.30.1",
-    "node-sass": "^4.0.0",
-    "node-static": "^0.7.0",
-    "postcss-loader": "^2.0.5",
-    "sass-loader": "^6.0.0",
-    "sw-precache-webpack-plugin": "^0.11.5",
-    "webpack": "^3.4.1",
-    "webpack-dev-server": "^2.4.0"
-  },
-  "optionalDependencies": {
-    "electron-packager": "^8.7.0"
+    "prettier": "^3.3.2",
+    "sass": "^1.77.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.10",
+    "vite-plugin-pwa": "^0.20.0",
+    "workbox-window": "^7.1.0"
   }
 }

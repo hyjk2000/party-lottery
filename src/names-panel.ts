@@ -1,43 +1,45 @@
-import Config from './config.js';
-import Nodes from './nodes.js';
+import Config from "./config.js";
+import Nodes from "./nodes.js";
 
-let instance = null;
+let instance: NamesPanel;
 
 class NamesPanel {
+  private config = new Config();
+  private nameCount = 0;
+  private running = false;
+  private stopSignal = false;
+  private runner?: number;
+
   constructor() {
     if (instance) return instance;
     instance = this;
 
-    this.config = new Config();
-    this.nameCount = 0;
-    this.running = false;
-    this.stopSignal = false;
-    this.runner = null;
-
-    Nodes.resetBtn.addEventListener('click', e => {
+    Nodes.resetBtn.addEventListener("click", () => {
       if (this.running || !confirm(Nodes.resetBtn.dataset.confirm)) return;
       this.init(true);
     });
 
-    window.addEventListener('resize', e => {
+    window.addEventListener("resize", () => {
       for (let aName of Nodes.nameNodes()) this.setNameSize(aName);
     });
 
-    Nodes.clickArea.addEventListener('click', this.clickHandler.bind(this));
+    Nodes.clickArea.addEventListener("click", this.clickHandler.bind(this));
 
-    document.body.addEventListener('keyup', this.clickHandler.bind(this));
+    document.body.addEventListener("keyup", this.clickHandler.bind(this));
   }
 
   init(clearState = false) {
     this.running = false;
     this.stopSignal = true;
 
-    for (let aName of Nodes.nameNodes()) aName.parentNode.removeChild(aName);
+    for (let aName of Nodes.nameNodes()) aName.parentNode?.removeChild(aName);
 
-    this.config.lightTheme ? Nodes.wrapper.classList.add('light-theme') : Nodes.wrapper.classList.remove('light-theme');
+    this.config.lightTheme ? Nodes.wrapper.classList.add("light-theme") : Nodes.wrapper.classList.remove("light-theme");
 
-    let nameList = this.config.names.replace(/[\s\,、，]+/g, ',').split(',');
-    nameList = nameList.filter(aName => { return aName != '' });
+    let nameList = this.config.names.replace(/[\s\,、，]+/g, ",").split(",");
+    nameList = nameList.filter((aName) => {
+      return aName != "";
+    });
     this.nameCount = nameList.length;
 
     if (clearState) {
@@ -46,46 +48,46 @@ class NamesPanel {
     }
 
     nameList.forEach((aName, index) => {
-      let nameDiv = document.createElement('div');
-      nameDiv.className = 'name';
+      let nameDiv = document.createElement("div");
+      nameDiv.className = "name";
       nameDiv.textContent = aName;
       this.setNameSize(nameDiv);
-      if (this.config.nameRemovedIndexes.indexOf(`${index}`) != -1) {
-        nameDiv.classList.add('disabled');
+      if (this.config.nameRemovedIndexes.indexOf(index) != -1) {
+        nameDiv.classList.add("disabled");
       }
       Nodes.namesPanel.appendChild(nameDiv);
     });
 
     if (this.nameCount < 2) {
-      Nodes.optionsBtn.classList.add('bouncing');
+      Nodes.optionsBtn.classList.add("bouncing");
     } else {
-      Nodes.optionsBtn.classList.remove('bouncing');
+      Nodes.optionsBtn.classList.remove("bouncing");
     }
   }
 
-  setNameSize(aName) {
-    let nameLength = Math.max(3, aName.textContent.length);
+  setNameSize(aName: HTMLElement) {
+    let nameLength = Math.max(3, aName.textContent?.length ?? 0);
     let magicDivide = Math.ceil(Math.sqrt(this.nameCount));
     let nameWidth = document.documentElement.clientWidth / magicDivide;
     let nameHeight = document.documentElement.clientHeight / magicDivide;
-    let nameFontSize = Math.min(nameWidth * 0.8 / nameLength, nameHeight * 0.8);
+    let nameFontSize = Math.min((nameWidth * 0.8) / nameLength, nameHeight * 0.8);
     aName.style.width = `${nameWidth}px`;
     aName.style.height = `${nameHeight}px`;
     aName.style.lineHeight = `${nameHeight}px`;
     aName.style.fontSize = `${nameFontSize}px`;
   }
 
-  highlightName(aName, on = true) {
+  highlightName(aName: HTMLElement, on = true) {
     if (!aName) return false;
     let onName = Nodes.nameOnNode();
-    if (onName instanceof Node) onName.classList.remove('on');
-    on ? aName.classList.add('on') : aName.classList.remove('on');
+    if (onName instanceof Node) onName.classList.remove("on");
+    on ? aName.classList.add("on") : aName.classList.remove("on");
     return true;
   }
 
-  transformName(aName, center = true) {
+  transformName(aName: HTMLElement, center = true) {
     if (!aName) return false;
-    let transform = 'none';
+    let transform = "none";
     if (center) {
       let { width, height, left, top } = aName.getBoundingClientRect();
       let { clientWidth, clientHeight } = document.documentElement;
@@ -94,26 +96,22 @@ class NamesPanel {
       let moveY = ((clientHeight - height) / 2 - top) / scale;
       transform = `scale(${scale}) translate(${moveX}px, ${moveY}px)`;
     }
-    ['webkitTransform', 'transform'].forEach((prop) => {
-      if (prop in aName.style) {
-        aName.style[prop] = transform;
-      }
-    });
+    aName.style.transform = transform;
     return true;
   }
 
-  speakName(aName, lang = navigator.language) {
+  speakName(aName: HTMLElement, lang = navigator.language) {
     if (!(this.config.readOutNames && window.speechSynthesis)) return false;
-    let utterance = new SpeechSynthesisUtterance(aName.textContent);
+    let utterance = new SpeechSynthesisUtterance(aName.textContent ?? undefined);
     utterance.lang = lang;
     window.speechSynthesis.speak(utterance);
   }
 
-  disableName(aName) {
+  disableName(aName: HTMLElement) {
     if (!this.config.removeAfterHit) return false;
     this.config.nameRemovedIndexes.push(Nodes.nameNodes().indexOf(aName));
     this.config.save();
-    aName.classList.add('disabled');
+    aName.classList.add("disabled");
   }
 
   gotoName() {
@@ -131,7 +129,7 @@ class NamesPanel {
     this.highlightName(candidates[idx]);
   }
 
-  run(speed, duration) {
+  run(speed: number, duration: number) {
     if (speed >= duration || this.stopSignal) {
       let winner = Nodes.nameOnNode();
       this.transformName(winner);
@@ -149,9 +147,9 @@ class NamesPanel {
     }
   }
 
-  clickHandler(e) {
-    if (Nodes.wrapper.classList.contains('flip')) return false;
-    if (e.type == 'keyup' && [13, 32].indexOf(e.keyCode) == -1) return false;
+  clickHandler(e: Event) {
+    if (Nodes.wrapper.classList.contains("flip")) return false;
+    if (e instanceof KeyboardEvent && e.type === "keyup" && ["Enter", "Space"].indexOf(e.code) === -1) return false;
     if (this.running) {
       if (this.config.stopOnDemand) this.stopSignal = true;
       return false;

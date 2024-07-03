@@ -1,26 +1,23 @@
-# [Party Lottery](https://hyjk2000.github.io/party-lottery/)
+# [Party Lottery](https://party-lottery.pages.dev)
 
-[![Build Status](https://travis-ci.org/hyjk2000/party-lottery.svg?branch=master)](https://travis-ci.org/hyjk2000/party-lottery) [![Code Climate](https://codeclimate.com/github/hyjk2000/party-lottery/badges/gpa.svg)](https://codeclimate.com/github/hyjk2000/party-lottery) [![Dev Dependency Status](https://david-dm.org/hyjk2000/party-lottery/dev-status.svg)](https://david-dm.org/hyjk2000/party-lottery?type=dev) [![Github All Releases](https://img.shields.io/github/downloads/hyjk2000/party-lottery/total.svg)](https://github.com/hyjk2000/party-lottery/releases)
+[![Build Status](https://github.com/hyjk2000/party-lottery/actions/workflows/build-deploy.yaml/badge.svg?branch=master)](https://github.com/hyjk2000/party-lottery/actions/workflows/build-deploy.yaml) [![Github All Releases](https://img.shields.io/github/downloads/hyjk2000/party-lottery/total.svg)](https://github.com/hyjk2000/party-lottery/releases)
 
 A lottery game app for parties, weddings, team buildings, etc.
 
 [<img width="248" alt="available-in-the-chrome-web-store" src="https://cloud.githubusercontent.com/assets/4647136/25934722/188a6b76-3652-11e7-9f5c-fe7334371744.png">](https://chrome.google.com/webstore/detail/cmdnpelgmfofpdiioompgofknddfhphc)
 
-[Legacy version](https://partylottery.sinaapp.com) with IE8 support.
-
-Created by [James Shih](https://hyjk2000.github.io).
+Created by [James Shih](https://jshih.dev).
 
 ## How to use
 
 ```shell
 $ git clone https://github.com/hyjk2000/party-lottery.git
 $ cd party-lottery
-$ yarn
+$ pnpm i
 
-$ yarn start                 # Start development server
-$ yarn eslint                # Lint the code
-$ yarn build                 # Build the assets
-$ yarn run pack              # Build Electron app
+$ pnpm dev                   # Start development server
+$ pnpm build                 # Build
+$ pnpm preview               # Preview the build
 ```
 
 ## Origin
@@ -34,7 +31,7 @@ Years later I found this app is still pretty useful. But the code was written in
 - [x] Rewrite JavaScript in ECMAScript 2015
 - [x] Rewrite CSS using Sass and Autoprefixer
 - [x] Remove jQuery & Modernizr (along with ancient browsers support)
-- [x] Package with [Electron](http://electron.atom.io/)
+- [x] ~~Package with [Electron](http://electron.atom.io/)~~
 
 ## Contribute
 
@@ -42,7 +39,7 @@ Pull requests, feature requests and bug reports are welcome.
 
 ## Copyright / License
 
-Copyright 2013-2015 James Shih.
+Copyright 2013-2024 James Shih.
 
 This software is licensed under the [MIT License](https://github.com/hyjk2000/party-lottery/blob/master/LICENSE).
 

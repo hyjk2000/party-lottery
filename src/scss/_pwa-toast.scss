@@ -1,0 +1,42 @@
+#pwa-toast {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 16px;
+  padding: 12px;
+  background-color: #333;
+  border: 1px solid #8885;
+  border-radius: 4px;
+  z-index: 1000;
+  text-align: left;
+  display: grid;
+
+  .message {
+    margin-bottom: 8px;
+  }
+
+  .buttons {
+    display: flex;
+
+    & > button {
+      border: 1px solid #8885;
+      outline: none;
+      margin-right: 5px;
+      border-radius: 2px;
+      padding: 3px 10px;
+    }
+
+    & > button#pwa-refresh {
+      display: none;
+    }
+  }
+
+  &.show {
+    visibility: visible;
+  }
+
+  &.show.refresh button#pwa-refresh {
+    display: block;
+  }
+}

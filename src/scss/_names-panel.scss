@@ -1,9 +1,9 @@
-#namesPanel {
+#wrapper > #namesPanel {
   background-color: #333;
 
   .name {
     float: left;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
     color: #888;
     text-align: center;
     white-space: nowrap;
@@ -13,7 +13,7 @@
       background: orange;
       box-shadow: 0 0 20px orange;
       color: #fff;
-      text-shadow: 2px 2px 5px rgba(0,0,0,.6);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
     }
 
     &.disabled {
@@ -33,9 +33,10 @@
   button {
     position: absolute;
     bottom: 50px;
-    opacity: .2;
+    opacity: 0.2;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       opacity: 1;
     }
 
@@ -51,16 +52,26 @@
       opacity: 1;
     }
 
-    &.bouncing span {
+    &.bouncing > * {
       display: inline-block;
       animation: bounce ease-out 2s infinite;
 
       @keyframes bounce {
-          0%  { transform: translateY(0) }
-          10% { transform: translateY(-80px) }
-          20% { transform: translateY(0) }
-          30% { transform: translateY(-40px) }
-          40% { transform: translateY(0) }
+        0% {
+          transform: translateY(0);
+        }
+        10% {
+          transform: translateY(-80px);
+        }
+        20% {
+          transform: translateY(0);
+        }
+        30% {
+          transform: translateY(-40px);
+        }
+        40% {
+          transform: translateY(0);
+        }
       }
     }
   }
